@@ -10,6 +10,11 @@ def printer(k):
     print(k.val)
     printer(k.Right)
 
+def level(root):
+    if root ==None:
+        return 0
+    return 1+max(level(root.Left),level(root.Right))
+
 def size(p):
     if p==None:
         return 0
@@ -23,6 +28,7 @@ d=Node(9,None,None)
 e=Node(4,None,None)
 f=Node(5)
 g=Node(3)
+k=Node(2)
  #       2
  #     5    8
  #   9  4  5  3
@@ -32,8 +38,10 @@ b.Left=d
 b.Right=e
 c.Left=f
 c.Right=g
+g.Left=k
 printer(a)
 sized=size(a)
 print("Size of Binary Tree:",sized)
+print("level of Binary tree:",level(a))
 
 
